@@ -6,6 +6,7 @@ authors:
   - family-names: "Saylam"
     given-names: "Ahmad"
 version: "0.1.0"
+doi: "10.5281/zenodo.22129134"
 repository-code: "https://github.com/saylamah/pyrolysis-modelling-framework"
 keywords:
   - pyrolysis
