@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the software and the source kinetic model listed in THIRD_PARTY_NOTICES.md."
+title: "Pyrolysis Modelling Framework"
+type: software
+authors:
+  - family-names: "Saylam"
+    given-names: "Ahmad"
+version: "0.1.0rc2"
+repository-code: "https://github.com/saylamah/pyrolysis-modelling-framework"
+keywords:
+  - pyrolysis
+  - biomass
+  - kinetics
+  - engineering
+  - reproducibility
+  - model selection

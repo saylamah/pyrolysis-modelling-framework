@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyrolysis-modelling-framework"
+version = "0.1.0rc2"
+description = "Evidence-aware, reproducible engineering framework for controlled pyrolysis modelling."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["jsonschema>=4.18"]
+authors = [{name = "Ahmad Saylam"}]
+license = "MIT"
+keywords = ["pyrolysis", "biomass", "kinetics", "engineering", "reproducibility", "model selection"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Intended Audience :: Manufacturing",
+  "Topic :: Scientific/Engineering :: Chemistry",
+  "Topic :: Scientific/Engineering :: Physics",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only"
+]
+
+[project.urls]
+Repository = "https://github.com/saylamah/pyrolysis-modelling-framework"
+Issues = "https://github.com/saylamah/pyrolysis-modelling-framework/issues"
+
+[project.scripts]
+pyrolysis-run = "dp06_pyrolysis.run_cli:main"
+pyrolysis-validate = "dp06_pyrolysis.validate_cli:main"
+pyrolysis-report = "dp06_pyrolysis.report_cli:main"
+pyrolysis-examples = "dp06_pyrolysis.example_suite:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"dp06_pyrolysis.schemas" = ["*.json"]
