@@ -2,7 +2,8 @@
 
 **Version:** `0.1.0`  
 **Status:** technical preview / qualified baseline  
-**DOI:** `10.5281/zenodo.22129134`
+**Version DOI:** `10.5281/zenodo.22129134`  
+**Concept DOI (all versions):** `10.5281/zenodo.22129133`
 
 The Pyrolysis Modelling Framework is an engineering-oriented Python framework for controlled pyrolysis modelling. Its purpose is not to provide one universal kinetic model. It separates feedstock description, operating regime, model eligibility, numerical execution, balances, evidence status, uncertainty and applicability so that a result is difficult to over-interpret.
 
@@ -93,9 +94,13 @@ Raw source data are **not redistributed** in this repository. See `THIRD_PARTY_N
 
 ## Citation and archived release
 
-The archived software release DOI is:
+For this exact software release (`v0.1.0`), use the version DOI:
 
 `10.5281/zenodo.22129134`
+
+For the evolving software record across all versions, use the concept DOI:
+
+`10.5281/zenodo.22129133`
 
 If you use the framework, please cite the software release and the source kinetic model listed in `THIRD_PARTY_NOTICES.md`.
 
