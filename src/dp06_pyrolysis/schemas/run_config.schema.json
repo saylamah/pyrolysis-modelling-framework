@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "PyrolysisFramework_RunConfig_v1",
+  "title": "Pyrolysis Modelling Framework Run Configuration",
+  "type": "object",
+  "required": [
+    "case_file",
+    "profiles_file",
+    "request",
+    "adapter_inputs",
+    "output_file"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "case_file": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profiles_file": {
+      "type": "string",
+      "minLength": 1
+    },
+    "request": {
+      "type": "object",
+      "required": [
+        "output",
+        "evidence_requirement"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "output": {
+          "type": "string",
+          "minLength": 1
+        },
+        "heating_rate_class": {
+          "enum": [
+            "slow",
+            "moderate",
+            "high",
+            "unspecified"
+          ]
+        },
+        "moisture_nonzero": {
+          "type": "boolean"
+        },
+        "polymer_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence_requirement": {
+          "enum": [
+            "validated",
+            "independently_reproduced",
+            "calibrated",
+            "screening",
+            "diagnostic",
+            "extrapolative",
+            "exploratory"
+          ]
+        },
+        "particle_scale_required": {
+          "type": "boolean"
+        },
+        "hdpe_ldpe_differentiation_required": {
+          "type": "boolean"
+        },
+        "energy_claim": {
+          "type": "boolean"
+        },
+        "autothermal_claim": {
+          "type": "boolean"
+        },
+        "interaction_claim": {
+          "type": "boolean"
+        }
+      }
+    },
+    "adapter_inputs": {
+      "type": "object"
+    },
+    "dry_feed_mass_kg": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "numerical_controls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_provenance": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "output_file": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

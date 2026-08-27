@@ -1,0 +1,48 @@
+{
+  "SFOR_RWTH": {
+    "model_id": "SFOR_RWTH",
+    "level": "L1",
+    "canonical_evidence_status": "calibrated",
+    "feedstock_domain": "biomass_components",
+    "regime_domain": "inert; TGA/FBR within calibrated/source domain",
+    "output_domain": "conversion; total volatile release rate; total volatile yield",
+    "validation_strength": "high in calibration domain; limited transfer",
+    "required_inputs": "component identity; T history; calibrated/source parameter set",
+    "blocked_domains": "detailed product chemistry; universal transfer; reactive atmosphere without extension",
+    "recommended_role": "low-cost screening / CFD-oriented reduced kinetics",
+    "rights_provenance": {
+      "status": "source equations/parameters citable; source data external",
+      "boundary": "source equations/parameters citable; source data external"
+    },
+    "uncertainty_components": [
+      {
+        "uncertainty_class": "parameter",
+        "quantification_mode": "categorical_only",
+        "evidence_basis": "published parameter sets reproduced; covariance/posterior not available in the framework baseline",
+        "guard": "no arbitrary parameter distribution"
+      },
+      {
+        "uncertainty_class": "model_form",
+        "quantification_mode": "model_ensemble_spread",
+        "evidence_basis": "B2 SFOR/CRECK/CPD comparisons provide same-case structural spread",
+        "guard": "diagnostic spread, not probability"
+      },
+      {
+        "uncertainty_class": "measurement",
+        "quantification_mode": "unavailable",
+        "evidence_basis": "source-specific experimental uncertainty not uniformly available across all benchmark outputs",
+        "guard": "retain per-source when present"
+      },
+      {
+        "uncertainty_class": "extrapolation_domain",
+        "quantification_mode": "categorical_only",
+        "evidence_basis": "calibration-domain limitation explicit",
+        "guard": "block evidence promotion outside domain"
+      }
+    ],
+    "quantitative_uncertainty_refs": [
+      "cross-model FBR rate spread summary",
+      "cross-model total-yield spread summary"
+    ]
+  }
+}

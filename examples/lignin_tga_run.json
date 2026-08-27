@@ -1,0 +1,31 @@
+{
+  "case_file": "lignin_tga_case.json",
+  "profiles_file": "../data/model_passport_profiles.json",
+  "request": {
+    "output": "total_yield",
+    "heating_rate_class": "slow",
+    "evidence_requirement": "calibrated",
+    "moisture_nonzero": false
+  },
+  "adapter_inputs": {
+    "component": "lignin",
+    "regime": "tga",
+    "dT_K": 0.05
+  },
+  "dry_feed_mass_kg": 1.0,
+  "assumptions": [
+    "Published lignin SFOR parameters are used without refitting.",
+    "No phase-resolved gas/condensable split is claimed."
+  ],
+  "numerical_controls": [
+    "Stable midpoint-exponential integration is used for the unchanged scalar SFOR ODE.",
+    "No source kinetic coefficient or final-yield coefficient is changed."
+  ],
+  "source_provenance": [
+    "RWTH supplementary dataset DOI 10.18154/RWTH-2021-05544",
+    "Pielsticker et al. (2021), DOI 10.3389/fenrg.2021.737011",
+    "source-faithful SFOR adapter",
+    "Evidence Passport v2 and deterministic preflight validation"
+  ],
+  "output_file": "lignin_tga_result.json"
+}

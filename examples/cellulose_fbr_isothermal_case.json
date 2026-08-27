@@ -1,0 +1,32 @@
+{
+  "case_metadata": {
+    "case_id": "PMF_CELLULOSE_FBR_823K_1S",
+    "purpose": "Cellulose, 823 K isothermal high-FBR parameter branch; exercises isothermal adapter path.",
+    "evidence_intent": "screening"
+  },
+  "feedstock": {
+    "feedstock_id": "RWTH2021_CELLULOSE",
+    "family": "lignocellulosic_biomass",
+    "name": "Extracted cellulose — RWTH 2021 benchmark",
+    "source_type": "open_benchmark_component",
+    "provenance_id": "doi:10.18154/RWTH-2021-05544",
+    "proximate_analysis": {
+      "basis": "dry",
+      "quality_status": "derived",
+      "values": {"volatile_matter": 0.9490443,"fixed_carbon": 0.047955700000000046,"ash": 0.003},
+      "complete_balance": true,
+      "source_ref": "RWTH 2021 Table 1; dry VM derived from daf VM and dry ash",
+      "method": "basis conversion only"
+    },
+    "ultimate_analysis": {
+      "basis": "dry_ash_free","quality_status": "measured_secondary_source",
+      "values": {"C": 0.4243,"H": 0.0632,"N": 0.003,"S": 0.0,"O": 0.5095},
+      "complete_balance": true,"source_ref": "RWTH 2021 Table 1","oxygen_method": "source reported by difference"
+    },
+    "physical_properties": {"particle_dp50_m": 0.0001648}
+  },
+  "regime": {"thermal_program": {"type": "isothermal","T_K": 823.0,"hold_time_s": 1.0},"pressure_Pa": 101325.0,"atmosphere": {"class": "inert","mole_fractions": {"N2": 1.0}}},
+  "model_request": {"requested_fidelity": "minimum_sufficient","selection_mode": "auto_evidence_aware","requested_model_id": null},
+  "outputs_requested": ["total_yield"],
+  "validation_context": {"benchmark_id": "B1","component": "cellulose","source_doi": "10.18154/RWTH-2021-05544"}
+}
