@@ -14,7 +14,7 @@ python -m pip install .
 Or install the release-candidate wheel from `dist/`:
 
 ```bash
-python -m pip install dist/pyrolysis_modelling_framework-0.1.0rc2-py3-none-any.whl
+python -m pip install dist/pyrolysis_modelling_framework-0.1.0-py3-none-any.whl
 ```
 
 ## Commands
@@ -30,6 +30,6 @@ pyrolysis-examples <suite-manifest.json>
 
 Direct clean-environment execution has been verified on Linux with Python 3.13.5.
 
-The release gate still requires the included CI matrix to pass on Ubuntu/Python 3.10, Ubuntu/Python 3.13 and Windows/Python 3.13 before `v0.1.0` may be tagged.
+The release gate has been verified through the included CI matrix on Ubuntu/Python 3.10, Ubuntu/Python 3.13 and Windows/Python 3.13.
 
 macOS and fully offline dependency bundling are not first-release requirements.

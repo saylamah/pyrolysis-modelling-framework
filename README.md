@@ -1,14 +1,13 @@
 # Pyrolysis Modelling Framework
 
-**Release candidate:** `0.1.0rc2`  
-**Planned first public release:** `v0.1.0`  
-**Status:** technical preview / qualified baseline — **not yet authorized for public tagging**
+**Version:** `0.1.0`  
+**Status:** technical preview / qualified baseline
 
 The Pyrolysis Modelling Framework is an engineering-oriented Python framework for controlled pyrolysis modelling. Its purpose is not to provide one universal kinetic model. It separates feedstock description, operating regime, model eligibility, numerical execution, balances, evidence status, uncertainty and applicability so that a result is difficult to over-interpret.
 
 ## Current executable scope
 
-This release candidate contains one qualified executable kinetic branch:
+This release contains one qualified executable kinetic branch:
 
 - `SFOR_RWTH` for extracted cellulose, hemicellulose and lignin;
 - inert atmosphere;
@@ -99,7 +98,7 @@ Raw source data are **not redistributed** in this repository. See `THIRD_PARTY_N
 - `THIRD_PARTY_NOTICES.md`
 - `CITATION.cff`
 
-## Release-candidate licence status
+## License
 
 The original framework code is licensed under the MIT License. See `LICENSE`.
 
@@ -111,13 +110,8 @@ Direct clean-environment execution has been verified on Linux / Python 3.13.5. T
 - Ubuntu / Python 3.13;
 - Windows / Python 3.13.
 
-The first public tag remains blocked until that endpoint matrix passes.
+The first release gate requires the documented endpoint CI matrix to pass.
 
 ## Development direction
 
 Later model adapters may be added only when their evidence, rights, executable integration and validation justify release. Higher fidelity is not a release objective by itself.
-
-
-## License
-
-Original Pyrolysis Modelling Framework code is released under the MIT License. See `LICENSE`. Third-party/source attribution remains governed by `THIRD_PARTY_NOTICES.md`.

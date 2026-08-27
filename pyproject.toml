@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyrolysis-modelling-framework"
-version = "0.1.0rc2"
+version = "0.1.0"
 description = "Evidence-aware, reproducible engineering framework for controlled pyrolysis modelling."
 readme = "README.md"
 requires-python = ">=3.10"

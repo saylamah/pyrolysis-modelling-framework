@@ -1,14 +1,12 @@
-# Release Candidate Status
+# Pre-Publication Release Status
 
-**Candidate:** `0.1.0rc2`  
-**Planned first public tag:** `v0.1.0`
+**Prepared version:** `0.1.0`  
+**Repository state:** private / release-gate verified
 
-The MIT License has been explicitly approved and is active in `LICENSE`.
+All technical first-release blockers R1–R5 have been cleared, including the hosted CI matrix on:
 
-The candidate is technically prepared but **must not yet be tagged publicly**.
+- Ubuntu / Python 3.10;
+- Ubuntu / Python 3.13;
+- Windows / Python 3.13.
 
-Remaining release blocker:
-
-- hosted CI must pass on Ubuntu/Python 3.10, Ubuntu/Python 3.13, and Windows/Python 3.13.
-
-After the CI matrix passes, rebuild the final `v0.1.0` artifact and perform the final G7-B release check.
+The repository must remain private and no public tag/release should be created until explicit final publication approval is given.

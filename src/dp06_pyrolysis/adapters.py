@@ -93,7 +93,7 @@ class RWTHSFORAdapter:
         self.manifest = ModelManifest(
             model_id=self.model_id,
             model_name="RWTH 2021 source-faithful SFOR adapter",
-            version="0.1.0rc2",
+            version="0.1.0",
             fidelity_level="L1",
             feedstock_families=["lignocellulosic_biomass"],
             supported_atmospheres=["inert"],
