@@ -1,12 +1,16 @@
-# Pre-Publication Release Status
+# Release Status
 
-**Prepared version:** `0.1.0`  
-**Repository state:** private / release-gate verified
+**Released version:** `v0.1.0`  
+**Repository state:** public / release-gate verified
 
-All technical first-release blockers R1–R5 have been cleared, including the hosted CI matrix on:
+The first public release was published after explicit approval and after all defined first-release blockers R1-R5 had been cleared.
+
+Hosted CI verification passed on:
 
 - Ubuntu / Python 3.10;
 - Ubuntu / Python 3.13;
 - Windows / Python 3.13.
 
-The repository must remain private and no public tag/release should be created until explicit final publication approval is given.
+Scientific evidence remains bounded as documented in the README and release notes: `SFOR_RWTH` is calibrated / source-domain, and software reproducibility or CI success does not constitute independent experimental validation.
+
+This file records release state only. It does not close the broader Pyrolysis Modelling Framework development program or authorize broader model claims.
