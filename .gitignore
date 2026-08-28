@@ -2,6 +2,7 @@ __pycache__/
 *.py[cod]
 *.egg-info/
 build/
-dist/*.whl
+dist/
 .venv/
 .pytest_cache/
+examples/*_result.json
