@@ -1,11 +1,11 @@
 # Pyrolysis Modelling Framework
 
 **Published version:** `v0.1.0`  
-**Development candidate:** `v0.1.1rc1` — quality hardening, not published  
+**Release-ready branch version:** `0.1.1` — quality hardening, not published  
 **Status:** technical preview / qualified baseline  
 **Published v0.1.0 version DOI:** `10.5281/zenodo.22129134`  
 **Concept DOI:** `10.5281/zenodo.22129133`  
-**v0.1.1rc1 version DOI:** none
+**v0.1.1 version DOI:** none
 
 The Pyrolysis Modelling Framework is an evidence-aware engineering framework for controlled pyrolysis modelling. It is designed around a simple rule:
 
@@ -13,7 +13,7 @@ The Pyrolysis Modelling Framework is an evidence-aware engineering framework for
 
 The framework separates the physical case, model choice, numerical execution, balances, evidence status, uncertainty and applicability. This makes model limitations visible instead of hiding them inside a single prediction.
 
-The `v0.1.1rc1` branch strengthens scientific documentation, evidence controls, numerical verification, packaging and release integrity. It does **not** expand the qualified scientific domain of `v0.1.0`.
+The `0.1.1` quality-hardening branch strengthens scientific documentation, evidence controls, numerical verification, packaging and release integrity. It does **not** expand the qualified scientific domain of `v0.1.0`.
 
 ## What is qualified now
 
@@ -89,7 +89,7 @@ The framework distinguishes:
 
 These labels describe scientific evidence, not software quality.
 
-The current public model metadata include higher-fidelity and future branches because model eligibility is part of the framework. Their evidence status and executable status are stored separately. `SFOR_RWTH` remains the only model adapter exposed through the qualified execution workflow in both published `v0.1.0` and the `v0.1.1rc1` quality-hardening candidate.
+The current public model metadata include higher-fidelity and future branches because model eligibility is part of the framework. Their evidence status and executable status are stored separately. `SFOR_RWTH` remains the only model adapter exposed through the qualified execution workflow in both published `v0.1.0` and the release-ready `0.1.1` quality-hardening branch.
 
 Generic Arrhenius and first-order utilities are also present as software/architecture utilities. They are **not** feedstock-general validated pyrolysis models and must not be interpreted as additional qualified model adapters.
 
@@ -104,7 +104,7 @@ Generic Arrhenius and first-order utilities are also present as software/archite
 
 The isothermal example exercises the high-FBR source parameter branch. It is not presented as independent detector-trace validation.
 
-The scientific example baseline remains frozen from `v0.1.0` in the quality-hardening candidate so documentation, packaging and evidence-control changes can be checked without silently changing the qualified numerical outputs.
+The scientific example baseline remains frozen from `v0.1.0` in the quality-hardening branch so documentation, packaging and evidence-control changes can be checked without silently changing the qualified numerical outputs.
 
 ## Source kinetic model
 
@@ -150,7 +150,7 @@ For the evolving software record across versions:
 
 `10.5281/zenodo.22129133`
 
-The `v0.1.1rc1` development candidate has no version DOI and should not be represented as a published archival release.
+The `0.1.1` branch state is not yet a published archival release and has no version DOI.
 
 If a published version of the framework is used in scientific work, cite that software release and the source kinetic model.
 
