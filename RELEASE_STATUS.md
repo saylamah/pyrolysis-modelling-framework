@@ -1,20 +1,17 @@
 # Release Status
 
-**Released version:** `v0.1.0`  
-**Repository state:** public / release-gate verified  
+**Published version:** `v0.1.0`  
+**Repository state:** public / quality-hardening in progress for the next patch release  
 **Version DOI:** `10.5281/zenodo.22129134`  
-**Concept DOI (all versions):** `10.5281/zenodo.22129133`
+**Concept DOI:** `10.5281/zenodo.22129133`
 
-The first public release was published after explicit approval and after all defined first-release blockers R1-R5 had been cleared.
+The published `v0.1.0` technical-preview release remains available and immutable.
 
-Hosted CI verification passed on:
+Current scientific evidence remains bounded as documented in the README and evidence guide:
 
-- Ubuntu / Python 3.10;
-- Ubuntu / Python 3.13;
-- Windows / Python 3.13.
+- `SFOR_RWTH` is calibrated / source-domain;
+- software reproducibility and CI success do not constitute independent experimental validation.
 
-Scientific evidence remains bounded as documented in the README and release notes: `SFOR_RWTH` is calibrated / source-domain, and software reproducibility or CI success does not constitute independent experimental validation.
+The next patch release is being prepared as a quality-hardening release. Its scope is documentation, evidence-label reconciliation, public verification depth and release-archive integrity. It does not silently expand the qualified scientific domain.
 
-The Zenodo archive preserves the exact `v0.1.0` source snapshot. The historical pre-publication status file remains only inside that immutable archived/tagged snapshot; current release status is maintained here on `main`.
-
-This file records release state only. It does not close the broader Pyrolysis Modelling Framework development program or authorize broader model claims.
+This status file does not close the broader Pyrolysis Modelling Framework development programme.
