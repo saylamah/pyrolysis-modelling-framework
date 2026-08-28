@@ -41,13 +41,15 @@ The example-suite verifier uses temporary result files and should not modify the
 
 ## Portability status
 
-The `v0.1.0` release gate was verified on:
+The published `v0.1.0` release gate and the `v0.1.1rc1` quality-hardening candidate have been exercised in hosted CI on:
 
 - Ubuntu / Python 3.10;
 - Ubuntu / Python 3.13;
 - Windows / Python 3.13.
 
-macOS and fully offline dependency bundling were not first-release requirements.
+For `v0.1.1rc1`, the Ubuntu/Python 3.13 gate additionally builds the wheel, inspects required/forbidden packaged files, creates a clean virtual environment, installs the built wheel, and reruns preflight plus the qualified example suite from that installation.
+
+macOS and fully offline dependency bundling are not current release requirements.
 
 ## Recommended workflow
 
