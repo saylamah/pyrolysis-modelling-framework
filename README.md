@@ -1,11 +1,10 @@
 # Pyrolysis Modelling Framework
 
-**Published version:** `v0.1.0`  
-**Release-ready branch version:** `0.1.1` — quality hardening, not published  
+**Published version:** `v0.1.1`  
 **Status:** technical preview / qualified baseline  
-**Published v0.1.0 version DOI:** `10.5281/zenodo.22129134`  
+**Published v0.1.1 version DOI:** `10.5281/zenodo.22143183`  
 **Concept DOI:** `10.5281/zenodo.22129133`  
-**v0.1.1 version DOI:** none
+**Previous v0.1.0 version DOI:** `10.5281/zenodo.22129134`
 
 The Pyrolysis Modelling Framework is an evidence-aware engineering framework for controlled pyrolysis modelling. It is designed around a simple rule:
 
@@ -13,7 +12,7 @@ The Pyrolysis Modelling Framework is an evidence-aware engineering framework for
 
 The framework separates the physical case, model choice, numerical execution, balances, evidence status, uncertainty and applicability. This makes model limitations visible instead of hiding them inside a single prediction.
 
-The `0.1.1` quality-hardening branch strengthens scientific documentation, evidence controls, numerical verification, packaging and release integrity. It does **not** expand the qualified scientific domain of `v0.1.0`.
+Version `v0.1.1` is a quality-hardening patch release. It strengthens scientific documentation, evidence controls, numerical verification, packaging and release integrity. It does **not** expand the qualified scientific domain of `v0.1.0`.
 
 ## What is qualified now
 
@@ -24,7 +23,7 @@ The public workflow currently has one qualified executable model adapter:
 - inert atmosphere;
 - linear-ramp and isothermal temperature programmes;
 - total volatile release and remaining solid;
-- mass and element ledgers;
+- mass and unresolved element accounting;
 - deterministic preflight checks;
 - Evidence Passport v2 and user-facing warnings.
 
@@ -89,7 +88,7 @@ The framework distinguishes:
 
 These labels describe scientific evidence, not software quality.
 
-The current public model metadata include higher-fidelity and future branches because model eligibility is part of the framework. Their evidence status and executable status are stored separately. `SFOR_RWTH` remains the only model adapter exposed through the qualified execution workflow in both published `v0.1.0` and the release-ready `0.1.1` quality-hardening branch.
+The current public model metadata include higher-fidelity and future branches because model eligibility is part of the framework. Their evidence status and executable status are stored separately. `SFOR_RWTH` remains the only model adapter exposed through the qualified execution workflow in both `v0.1.0` and `v0.1.1`.
 
 Generic Arrhenius and first-order utilities are also present as software/architecture utilities. They are **not** feedstock-general validated pyrolysis models and must not be interpreted as additional qualified model adapters.
 
@@ -104,7 +103,7 @@ Generic Arrhenius and first-order utilities are also present as software/archite
 
 The isothermal example exercises the high-FBR source parameter branch. It is not presented as independent detector-trace validation.
 
-The scientific example baseline remains frozen from `v0.1.0` in the quality-hardening branch so documentation, packaging and evidence-control changes can be checked without silently changing the qualified numerical outputs.
+The four qualified numerical outputs remain frozen from `v0.1.0` in `v0.1.1`, so the quality-hardening patch does not silently alter the accepted baseline results.
 
 ## Source kinetic model
 
@@ -142,15 +141,17 @@ This framework does not currently provide validated executable support for:
 
 ## Citation
 
-For the exact published `v0.1.0` software release:
+For the exact published `v0.1.1` software release:
 
-`10.5281/zenodo.22129134`
+`10.5281/zenodo.22143183`
 
 For the evolving software record across versions:
 
 `10.5281/zenodo.22129133`
 
-The `0.1.1` branch state is not yet a published archival release and has no version DOI.
+Previous `v0.1.0` release:
+
+`10.5281/zenodo.22129134`
 
 If a published version of the framework is used in scientific work, cite that software release and the source kinetic model.
 
