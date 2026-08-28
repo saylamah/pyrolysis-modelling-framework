@@ -20,6 +20,7 @@ from dp06_pyrolysis.balances import MassLedger, ElementLedger
 from dp06_pyrolysis.adapters import adapter_for, AdapterDomainError, stable_sfor_linear_ramp
 from dp06_pyrolysis.models.rwth2021 import sfor_linear_ramp
 from dp06_pyrolysis.minimal_models import FirstOrderScreeningModel
+from dp06_pyrolysis.profiles import load_model_profiles
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -154,6 +155,17 @@ class ScientificIntegrityTests(unittest.TestCase):
     def test_generic_first_order_utility_never_claims_validation(self):
         result=FirstOrderScreeningModel(ArrheniusReaction(2.0,0.0)).run(simple_case())
         self.assertEqual(result.evidence_passport.evidence_status.value,"screening")
+
+    def test_public_evidence_registry_controls_outward_status(self):
+        profiles=load_model_profiles(ROOT/"data"/"model_passport_profiles.json")
+        self.assertEqual(profiles["SFOR_RWTH"]["canonical_evidence_status"],"calibrated")
+        self.assertEqual(profiles["CRECK_BIOMASS"]["canonical_evidence_status"],"diagnostic")
+        self.assertEqual(profiles["CPD_FAMILY"]["canonical_evidence_status"],"diagnostic")
+        self.assertEqual(profiles["AEP_ISOCONVERSIONAL"]["canonical_evidence_status"],"diagnostic")
+        self.assertEqual(profiles["CO2_STAGE_BRANCH"]["canonical_evidence_status"],"diagnostic")
+        self.assertEqual(profiles["MOISTURE_EQ7"]["canonical_evidence_status"],"independently_reproduced")
+        executable=[k for k,v in profiles.items() if v.get("public_executable")]
+        self.assertEqual(executable,["SFOR_RWTH"])
 
     def test_source_tree_has_no_generated_example_results(self):
         self.assertEqual(list((ROOT/"examples").glob("*_result.json")),[])
