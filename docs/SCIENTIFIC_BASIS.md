@@ -81,7 +81,9 @@ For a ramp
 
 the framework integrates the same SFOR equation along the prescribed temperature history.
 
-The public adapter uses a midpoint exponential update over each temperature interval. This was introduced to avoid instability in the stiff high-temperature tail of the inherited explicit RK4 implementation. The update changes no source kinetic coefficient and no final-yield coefficient.
+The public adapter uses a **piecewise midpoint-frozen coefficient exponential update** over each temperature interval: within one numerical step, \(k\) and \(y_\infty\) are evaluated at the interval midpoint and the resulting scalar first-order equation is advanced analytically over that step. This is a numerical integration scheme for the unchanged source ODE; it is not an exact closed-form solution for continuously varying \(k(T)\) and \(y_\infty(T)\).
+
+The scheme was introduced to avoid instability in the stiff high-temperature tail of the inherited explicit RK4 implementation. It changes no source kinetic coefficient and no final-yield coefficient.
 
 Numerical verification checks that the stable integration agrees with the inherited formulation where the latter is stable and converges as the temperature step is refined.
 
@@ -109,9 +111,9 @@ A zero closure residual means the bookkeeping closes. It does not mean the produ
 
 When an ultimate analysis is supplied, element masses are calculated on the declared composition basis.
 
-The current SFOR branch does not speciate products by element. Tracked element mass is therefore conserved in an unresolved accounting state rather than assigned to invented species.
+The current SFOR branch does not predict the partition of C, H, O, N, S or Cl among solid, condensable and gaseous products. The present element ledger therefore keeps each tracked input element in an **unresolved conserved inventory**. Its zero residual is an accounting identity/check, not a prediction or validation of elemental fate.
 
-This design keeps elemental closure separate from product-resolution claims.
+No phase-resolved elemental distribution should be inferred from this ledger. Future product-resolving adapters must supply their own explicit elemental-output mapping before elemental fate can become a predictive result.
 
 ## 7. Energy accounting
 
