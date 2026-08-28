@@ -37,3 +37,4 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 "dp06_pyrolysis.schemas" = ["*.json"]
+"dp06_pyrolysis.data" = ["*.json"]
