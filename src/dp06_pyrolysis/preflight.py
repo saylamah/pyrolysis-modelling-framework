@@ -11,6 +11,7 @@ from .io import load_case_json
 from .integrity import IntegrityError
 from .evidence_passport_v2 import ResultRequest, build_evidence_passport
 from .adapters import adapter_for, AdapterNotImplementedError
+from .profiles import load_model_profiles
 
 PHASE_ORDER = {
     "config_schema":1,
@@ -136,8 +137,6 @@ def _canonical_report(status, config_path, selected_model, issues):
         issues,
         key=lambda x:(PHASE_ORDER.get(x.phase,99),x.path,x.code,x.message)
     )
-    # The integrity hash intentionally excludes config_path so the same
-    # semantic request has the same report hash after relocation/renaming.
     hash_payload={
         "status":status,
         "selected_model":selected_model,
@@ -216,7 +215,7 @@ def preflight_config(config_path: str | Path) -> PreflightReport:
         return _canonical_report("FAIL",config_path,selected,issues)
 
     try:
-        profiles=json.loads(profiles_path.read_text(encoding="utf-8"))
+        profiles=load_model_profiles(profiles_path)
     except Exception as e:
         issues.append(ValidationIssue(
             "error","file_resolution","PROFILES_JSON_ERROR","$.profiles_file",
