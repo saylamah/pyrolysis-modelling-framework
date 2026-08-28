@@ -20,9 +20,9 @@ Software tests establish implementation and numerical integrity. They do not con
 
 `SFOR_RWTH` is the only model adapter currently exposed through the qualified public execution workflow.
 
-Two machine-readable layers are deliberately separated. `data/model_passport_profiles.json` contains detailed metadata for model branches distributed with the package. `data/public_evidence_registry.json` controls outward evidence status and public executable status for all branches recognized by the selector. Registry-only branches are represented conservatively as eligibility/evidence metadata; their presence does not imply that model code, source data or a full validation package is distributed.
+Two machine-readable layers are deliberately separated. `data/model_passport_profiles.json` is the caller-supplied detailed profile layer used by the current examples. The package-owned `src/dp06_pyrolysis/data/public_evidence_registry.json` controls outward evidence status and public executable status for all branches recognized by the selector. Registry-only branches are represented conservatively as eligibility/evidence metadata; their presence does not imply that model code, source data or a full validation package is distributed.
 
-This separation prevents a source-comparison or development result from silently becoming a stronger public claim.
+This separation prevents a source-comparison or development result from silently becoming a stronger public claim. The claim registry is packaged with the installed software so the same evidence ceiling applies after wheel installation, not only when running from the repository.
 
 ## 3. Model/evidence matrix
 
@@ -40,7 +40,7 @@ This separation prevents a source-comparison or development result from silently
 | `AUTOTHERMAL_LEDGER` | no | `screening` | system energy-closure logic; no universal autothermal equivalence ratio |
 | `COPYROLYSIS_LINEAR_NULL` | no | `diagnostic` | mandatory null model before any synergy claim |
 
-The authoritative machine-readable outward claim controls are in `data/public_evidence_registry.json`.
+The authoritative machine-readable outward claim controls are in `src/dp06_pyrolysis/data/public_evidence_registry.json`.
 
 ## 4. Qualified SFOR boundary
 
