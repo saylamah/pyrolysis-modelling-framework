@@ -35,7 +35,7 @@ def _canonical_hash(payload: Dict[str,Any]) -> str:
     raw=json.dumps(payload,sort_keys=True,separators=(",",":"),ensure_ascii=False)
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
-def run_unified_config(config_path: str | Path) -> str:
+def run_unified_config(config_path: str | Path, output_override: str | Path | None = None) -> str:
     config_path=Path(config_path)
     preflight=preflight_config(config_path)
     if preflight.status != "PASS":
@@ -85,7 +85,6 @@ def run_unified_config(config_path: str | Path) -> str:
     if selected is None:
         raise ValueError("selector returned no primary model")
 
-    # Respect optional explicit requested_model_id from the original StudyCase.
     fixed=case.model_request.requested_model_id
     if fixed is not None and fixed != selected:
         raise ValueError(
@@ -120,7 +119,7 @@ def run_unified_config(config_path: str | Path) -> str:
     }
     result["run_sha256"]=_canonical_hash(result)
 
-    out=resolve(cfg["output_file"])
+    out = Path(output_override).resolve() if output_override is not None else resolve(cfg["output_file"])
     out.parent.mkdir(parents=True,exist_ok=True)
     out.write_text(json.dumps(result,indent=2,sort_keys=True),encoding="utf-8")
     return str(out)
