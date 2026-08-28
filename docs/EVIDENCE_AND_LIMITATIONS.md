@@ -20,9 +20,9 @@ Software tests establish implementation and numerical integrity. They do not con
 
 `SFOR_RWTH` is the only model adapter currently exposed through the qualified public execution workflow.
 
-The model-passport file also contains evidence and eligibility metadata for other branches. This metadata is retained because the framework must be able to say **which model would be scientifically relevant** even when that model is not yet executable in the public package.
+Two machine-readable layers are deliberately separated. `data/model_passport_profiles.json` contains detailed metadata for model branches distributed with the package. `data/public_evidence_registry.json` controls outward evidence status and public executable status for all branches recognized by the selector. Registry-only branches are represented conservatively as eligibility/evidence metadata; their presence does not imply that model code, source data or a full validation package is distributed.
 
-A profile can therefore be scientifically useful while `public_executable=false`.
+This separation prevents a source-comparison or development result from silently becoming a stronger public claim.
 
 ## 3. Model/evidence matrix
 
@@ -40,7 +40,7 @@ A profile can therefore be scientifically useful while `public_executable=false`
 | `AUTOTHERMAL_LEDGER` | no | `screening` | system energy-closure logic; no universal autothermal equivalence ratio |
 | `COPYROLYSIS_LINEAR_NULL` | no | `diagnostic` | mandatory null model before any synergy claim |
 
-The machine-readable source of this table is `data/model_passport_profiles.json`.
+The authoritative machine-readable outward claim controls are in `data/public_evidence_registry.json`.
 
 ## 4. Qualified SFOR boundary
 
