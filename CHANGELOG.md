@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.1rc1 — release candidate, not published
+## 0.1.1 — release-ready branch state, not yet published
 
 - strengthened public scientific documentation and navigation;
 - separated public executable status from scientific evidence metadata;
@@ -10,9 +10,11 @@
 - expanded public numerical, integrity and evidence-control tests;
 - added built-wheel inspection and clean-wheel installation verification;
 - documented exact-tag release-archive and checksum rules;
-- reconciled release-candidate citation/status metadata without assigning an unpublished version DOI.
+- reconciled citation/status/version metadata without assigning an unpublished version DOI;
+- clarified that the current SFOR element ledger is unresolved conservation accounting, not a predictive elemental-fate model;
+- clarified the stable linear-ramp solver as a piecewise midpoint-frozen coefficient exponential integration scheme.
 
-No new feedstock, atmosphere, product-chemistry or validation claim is introduced by this quality-hardening candidate.
+No new feedstock, atmosphere, product-chemistry or validation claim is introduced by this quality-hardening patch.
 
 ## 0.1.0 — 2026-08-27
 
