@@ -8,9 +8,7 @@ from .io import load_case_json
 from .adapters import adapter_for
 from .evidence_passport_v2 import ResultRequest, build_evidence_passport
 from .preflight import preflight_config, PreflightValidationError
-
-def _load_profiles(path: str | Path) -> Dict[str,Any]:
-    return json.loads(Path(path).read_text(encoding="utf-8"))
+from .profiles import load_model_profiles
 
 def _atmosphere_label(case) -> str:
     cls=case.regime.atmosphere_class.value
@@ -47,7 +45,7 @@ def run_unified_config(config_path: str | Path, output_override: str | Path | No
         return q if q.is_absolute() else (config_path.parent/q).resolve()
 
     case=load_case_json(resolve(cfg["case_file"]))
-    profiles=_load_profiles(resolve(cfg["profiles_file"]))
+    profiles=load_model_profiles(resolve(cfg["profiles_file"]))
 
     request_cfg=cfg["request"]
     output=str(request_cfg.get("output") or case.outputs_requested[0])
