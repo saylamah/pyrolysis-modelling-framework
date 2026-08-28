@@ -1,12 +1,11 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite the software and the source kinetic model listed in THIRD_PARTY_NOTICES.md."
+message: "If you use a published version of this software, cite that archived software release and the source kinetic model listed in THIRD_PARTY_NOTICES.md. This release-candidate branch has no version DOI yet."
 title: "Pyrolysis Modelling Framework"
 type: software
 authors:
   - family-names: "Saylam"
     given-names: "Ahmad"
-version: "0.1.0"
-doi: "10.5281/zenodo.22129134"
+version: "0.1.1rc1"
 repository-code: "https://github.com/saylamah/pyrolysis-modelling-framework"
 keywords:
   - pyrolysis
