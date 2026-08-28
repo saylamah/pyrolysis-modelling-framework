@@ -1,6 +1,6 @@
 from __future__ import annotations
 from pathlib import Path
-import argparse, hashlib, json
+import argparse, hashlib, json, tempfile
 
 from .preflight import preflight_config
 from .unified import run_unified_config
@@ -22,14 +22,16 @@ def verify_example_suite(manifest_path: str | Path, reruns: int=2):
 
         first_bytes=None
         final=None
-        for _ in range(max(1,reruns)):
-            out=Path(run_unified_config(run_path))
-            raw=out.read_bytes()
-            if first_bytes is None:
-                first_bytes=raw
-            elif raw!=first_bytes:
-                raise RuntimeError(f"{entry['example_id']}: non-deterministic result bytes")
-            final=json.loads(raw)
+        with tempfile.TemporaryDirectory(prefix="pyrolysis-example-") as td:
+            out_path=Path(td)/f"{entry['example_id']}_result.json"
+            for _ in range(max(1,reruns)):
+                out=Path(run_unified_config(run_path, output_override=out_path))
+                raw=out.read_bytes()
+                if first_bytes is None:
+                    first_bytes=raw
+                elif raw!=first_bytes:
+                    raise RuntimeError(f"{entry['example_id']}: non-deterministic result bytes")
+                final=json.loads(raw)
 
         if final["selected_model"]!=entry["expected_model"]:
             raise RuntimeError(f"{entry['example_id']}: unexpected selected model")
