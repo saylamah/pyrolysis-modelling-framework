@@ -1,4 +1,5 @@
 from __future__ import annotations
+from importlib.resources import files
 from pathlib import Path
 from typing import Any, Dict
 import json
@@ -33,12 +34,17 @@ def _minimal_public_profile(model_id: str, control: Dict[str, Any]) -> Dict[str,
     }
 
 
-def load_model_profiles(path: str | Path) -> Dict[str, Any]:
-    """Load detailed profiles and apply the bundled public claim registry.
+def _load_public_registry() -> Dict[str, Any]:
+    resource = files("dp06_pyrolysis.data").joinpath("public_evidence_registry.json")
+    return json.loads(resource.read_text(encoding="utf-8"))
 
-    `model_passport_profiles.json` carries detailed metadata for model branches
-    that are distributed with the package. `public_evidence_registry.json`
-    separately controls outward claim status and public executable status.
+
+def load_model_profiles(path: str | Path) -> Dict[str, Any]:
+    """Load detailed profiles and apply the packaged public claim registry.
+
+    The caller-supplied profile file carries branch-specific metadata used by a
+    study. The package-owned public evidence registry separately controls the
+    outward evidence status and public executable status.
 
     Registry-only branches are represented by conservative metadata-only
     profiles. This lets the selector explain why a branch is relevant without
@@ -47,11 +53,8 @@ def load_model_profiles(path: str | Path) -> Dict[str, Any]:
     """
     p = Path(path)
     profiles = json.loads(p.read_text(encoding="utf-8"))
-    registry_path = p.parent / "public_evidence_registry.json"
-    if not registry_path.is_file():
-        return profiles
+    registry = _load_public_registry()
 
-    registry = json.loads(registry_path.read_text(encoding="utf-8"))
     for model_id, control in registry.get("models", {}).items():
         profile = profiles.get(model_id)
         if profile is None:
