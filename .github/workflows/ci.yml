@@ -40,3 +40,20 @@ jobs:
 
       - name: Verify qualified example suite
         run: pyrolysis-examples examples/suite_manifest.json --reruns 1
+
+      - name: Build and inspect wheel
+        if: runner.os == 'Linux' && matrix.python == '3.13'
+        run: |
+          rm -rf wheelhouse
+          python -m pip wheel . --no-deps --wheel-dir wheelhouse
+          python tools/verify_wheel.py wheelhouse/*.whl
+
+      - name: Verify clean wheel installation
+        if: runner.os == 'Linux' && matrix.python == '3.13'
+        run: |
+          rm -rf wheelcheck
+          python -m venv wheelcheck
+          wheelcheck/bin/python -m pip install --upgrade pip
+          wheelcheck/bin/python -m pip install wheelhouse/*.whl
+          wheelcheck/bin/pyrolysis-validate examples/cellulose_tga_run.json
+          wheelcheck/bin/pyrolysis-examples examples/suite_manifest.json --reruns 1
