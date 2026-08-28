@@ -1,9 +1,9 @@
 {
   "schema": "PyrolysisFramework_QualifiedExampleSuite_v1",
   "suite_id": "PMF_SFOR_QUALIFIED_SUITE_v0.1.0",
-  "release_candidate": "0.1.0",
-  "planned_public_version": "0.1.0",
-  "purpose": "Small reproducible suite for the currently qualified executable SFOR branch.",
+  "baseline_release": "0.1.0",
+  "candidate_using_baseline": "0.1.1rc1",
+  "purpose": "Small reproducible suite for the currently qualified executable SFOR branch. The scientific outputs and integrity hashes remain frozen from v0.1.0 during v0.1.1 quality hardening.",
   "evidence_note": "Software reproducibility does not upgrade the SFOR scientific evidence beyond calibrated/source-domain.",
   "examples": [
     {"example_id":"cellulose_tga","description":"Cellulose, inert TGA ramp, exercises source-faithful linear-ramp path.","component":"cellulose","source_regime":"tga","case_file":"cellulose_tga_case.json","run_file":"cellulose_tga_run.json","result_file":"cellulose_tga_result.json","expected_model":"SFOR_RWTH","expected_evidence_status":"calibrated","baseline_expected_total_volatile_yield_fraction":0.9319995023921167,"baseline_expected_remaining_solid_fraction":0.06800049760788329,"expected_run_sha256":"755502f5011279fd95d0a7a7635e45c603f7e1d596e48d4e2bf512e5bbd50b61","expected_passport_sha256":"51a1f6606492b43a2514c615a3d624115a6b2d4a0e41dd3c7dfe97405a961b02","expected_preflight_sha256":"0bc5d1d37194314d17f72efbecc6e515a1ce66820bd5b872ce76cb97a75e4e93"},
