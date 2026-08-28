@@ -1,0 +1,76 @@
+{
+  "schema": "PyrolysisFramework_PublicEvidenceRegistry_v1",
+  "release_target": "0.1.1",
+  "models": {
+    "SFOR_RWTH": {
+      "claim_status": "calibrated",
+      "public_executable": true,
+      "basis": "Source equations and parameters implemented without refitting; calibrated/source-domain execution."
+    },
+    "CRECK_BIOMASS": {
+      "claim_status": "diagnostic",
+      "public_executable": false,
+      "basis": "B2 compared source-provided CRECK outputs; DP-06 did not independently execute/reproduce CRECK."
+    },
+    "CPD_FAMILY": {
+      "claim_status": "diagnostic",
+      "public_executable": false,
+      "basis": "B2 compared source-provided CPD-family outputs; direct DP-06 execution remains unqualified."
+    },
+    "CPDSPATIAL": {
+      "claim_status": "exploratory",
+      "public_executable": false,
+      "basis": "Direct DP-06 CPDSpatial reproduction remains on HOLD."
+    },
+    "AEP_ISOCONVERSIONAL": {
+      "claim_status": "diagnostic",
+      "public_executable": false,
+      "basis": "Table-level/source-locked activation-energy profile reproduction; raw-TGA reprocessing deferred."
+    },
+    "PS_7_6": {
+      "claim_status": "screening",
+      "public_executable": false,
+      "basis": "L3 polymer mass-loss screening only."
+    },
+    "PE_GLOBAL": {
+      "claim_status": "screening",
+      "public_executable": false,
+      "basis": "L3 PE mass-loss screening; no HDPE/LDPE discrimination claim."
+    },
+    "PP_GLOBAL": {
+      "claim_status": "screening",
+      "public_executable": false,
+      "basis": "L3 PP mass-loss screening only."
+    },
+    "PET_GLOBAL_OR_SEMIDETAILED": {
+      "claim_status": "screening",
+      "public_executable": false,
+      "basis": "Guarded PET branch; thermochemistry/transfer limits remain."
+    },
+    "PVC_SEMIDETAILED": {
+      "claim_status": "screening",
+      "public_executable": false,
+      "basis": "Guarded chlorine-aware branch; thermochemistry/residue limits remain."
+    },
+    "MOISTURE_EQ7": {
+      "claim_status": "independently_reproduced",
+      "public_executable": false,
+      "basis": "Published analytical moisture-energy relation independently implemented/reproduced within its benchmark scope."
+    },
+    "CO2_STAGE_BRANCH": {
+      "claim_status": "diagnostic",
+      "public_executable": false,
+      "basis": "Source table contrasts reproduced to define a stage-dependent atmosphere guard; not a predictive CO2 model."
+    },
+    "AUTOTHERMAL_LEDGER": {
+      "claim_status": "screening",
+      "public_executable": false,
+      "basis": "System energy-closure screening logic; no universal autothermal ER."
+    },
+    "COPYROLYSIS_LINEAR_NULL": {
+      "claim_status": "diagnostic",
+      "public_executable": false,
+      "basis": "Linear null is a diagnostic prerequisite before any interaction/synergy claim."
+    }
+  }
+}
