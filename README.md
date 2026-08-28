@@ -1,131 +1,155 @@
 # Pyrolysis Modelling Framework
 
-**Version:** `0.1.0`  
+**Published version:** `v0.1.0`  
 **Status:** technical preview / qualified baseline  
 **Version DOI:** `10.5281/zenodo.22129134`  
-**Concept DOI (all versions):** `10.5281/zenodo.22129133`
+**Concept DOI:** `10.5281/zenodo.22129133`
 
-The Pyrolysis Modelling Framework is an engineering-oriented Python framework for controlled pyrolysis modelling. Its purpose is not to provide one universal kinetic model. It separates feedstock description, operating regime, model eligibility, numerical execution, balances, evidence status, uncertainty and applicability so that a result is difficult to over-interpret.
+The Pyrolysis Modelling Framework is an evidence-aware engineering framework for controlled pyrolysis modelling. It is designed around a simple rule:
 
-## Current executable scope
+> use the smallest model that can answer the engineering question, and do not claim more than the evidence supports.
 
-This release contains one qualified executable kinetic branch:
+The framework separates the physical case, model choice, numerical execution, balances, evidence status, uncertainty and applicability. This makes model limitations visible instead of hiding them inside a single prediction.
 
-- `SFOR_RWTH` for extracted cellulose, hemicellulose and lignin;
+## What is qualified now
+
+The public workflow currently has one qualified executable model adapter:
+
+- `SFOR_RWTH`;
+- extracted cellulose, hemicellulose and lignin;
 - inert atmosphere;
-- linear-ramp and isothermal execution;
-- total volatile release / remaining solid;
+- linear-ramp and isothermal temperature programmes;
+- total volatile release and remaining solid;
 - mass and element ledgers;
-- deterministic preflight validation;
-- Evidence Passport and user-facing evidence/uncertainty reporting.
+- deterministic preflight checks;
+- Evidence Passport v2 and user-facing warnings.
 
-The SFOR branch is **calibrated/source-domain**. Reproducible software execution is not independent experimental validation.
+The `SFOR_RWTH` branch is **calibrated / source-domain**. Reproducible execution, numerical checks and CI success do **not** constitute independent experimental validation.
 
-## Not claimed in v0.1.0
+Other model families are retained as bounded eligibility/evidence metadata. They are not silently substituted for an unavailable executable model.
 
-This release does not provide validated executable support for detailed product chemistry, CRECK, CPD/CPDSpatial, polymers, manure/dung, CO2/oxidative/autothermal pyrolysis, co-pyrolysis interaction chemistry, pressure-dependent kinetics, or a universal biomass kinetic model.
+## Scientific architecture
+
+The invariant workflow is:
+
+`StudyCase → Feedstock Passport → Regime Passport → Model Eligibility → Model Adapter → Canonical Products → Mass/Element/Energy Ledgers → Evidence Passport → Validation/Uncertainty → optional Optimization`
+
+The main design principles are:
+
+1. **Basis integrity.** Dry, dry-ash-free and as-received composition data are not silently mixed.
+2. **Regime integrity.** Heating rate, atmosphere, residence time and other regime variables remain explicit.
+3. **Minimum-sufficient fidelity.** Higher model complexity requires a named information gain.
+4. **No invented product split.** Unresolved volatile mass stays unresolved when the model cannot separate gas, tar/oil and water.
+5. **Evidence ceilings.** A requested claim is blocked when it exceeds the evidence level of the selected branch.
+6. **Rights/provenance visibility.** External mechanisms or datasets are referenced without assuming redistribution rights.
+
+See [`docs/SCIENTIFIC_BASIS.md`](docs/SCIENTIFIC_BASIS.md) for the equations and physical accounting logic.
 
 ## Quick start
 
-Create an environment with Python 3.10 or newer and install the package:
+Python 3.10 or newer is required.
 
 ```bash
 python -m pip install .
 ```
 
-Validate a case without running kinetics:
+Validate a case before numerical execution:
 
 ```bash
 pyrolysis-validate examples/cellulose_tga_run.json
 ```
 
-Run a qualified example:
+Run a qualified case:
 
 ```bash
 pyrolysis-run examples/cellulose_tga_run.json
 ```
 
-Render an existing result:
+Render a result:
 
 ```bash
 pyrolysis-report examples/cellulose_tga_result.json --format markdown
 ```
 
-Verify the compact example suite:
+Verify all four qualified examples without leaving generated result files in the repository:
 
 ```bash
 pyrolysis-examples examples/suite_manifest.json --reruns 2
 ```
 
-## Result discipline
+## Evidence and model status
 
-A complete result carries an Evidence Passport with:
+The framework distinguishes:
 
-- selected model;
-- scientific evidence status and evidence ceiling;
-- domain/applicability status;
-- uncertainty modes;
-- warnings and blocked claims;
-- rights/provenance boundary;
-- deterministic integrity hashes.
+`validated · independently_reproduced · calibrated · screening · diagnostic · extrapolative · exploratory`
 
-`PASS_WITH_WARNINGS` is a usability/report status. It does **not** mean experimentally validated prediction.
+These labels describe scientific evidence, not software quality.
+
+The current public model metadata include higher-fidelity and future branches because model eligibility is part of the framework. Their evidence status and executable status are stored separately. In `v0.1.0`, `SFOR_RWTH` is the only model adapter exposed through the qualified execution workflow.
+
+Generic Arrhenius and first-order utilities are also present as software/architecture utilities. They are **not** feedstock-general validated pyrolysis models and must not be interpreted as additional qualified model adapters.
 
 ## Qualified examples
 
-The repository includes four deterministic examples:
+| Example | Component | Thermal programme | Purpose |
+|---|---|---|---|
+| `cellulose_tga` | cellulose | 303–1173 K, 5 K/min | calibrated TGA branch |
+| `hemicellulose_tga` | hemicellulose | 303–1173 K, 5 K/min | calibrated TGA branch |
+| `lignin_tga` | lignin | 303–1173 K, 5 K/min | calibrated TGA branch |
+| `cellulose_fbr_isothermal` | cellulose | 823 K, 1 s | source-parameter isothermal demonstration |
 
-1. cellulose TGA, 5 K/min;
-2. hemicellulose TGA, 5 K/min;
-3. lignin TGA, 5 K/min;
-4. cellulose high-temperature isothermal SFOR demonstration.
-
-The isothermal example exercises the source parameter branch; it is not presented as independent FBR detector-trace validation.
+The isothermal example exercises the high-FBR source parameter branch. It is not presented as independent detector-trace validation.
 
 ## Source kinetic model
 
-The current executable SFOR branch is based on:
+The qualified SFOR adapter is based on:
 
 Stefan Pielsticker, Benjamin Gövert, Kentaro Umeki, and Reinhold Kneer (2021), *Flash Pyrolysis Kinetics of Extracted Lignocellulosic Biomass Components*, **Frontiers in Energy Research**, 9:737011. DOI: `10.3389/fenrg.2021.737011`.
 
 Supplementary dataset: DOI `10.18154/RWTH-2021-05544`.
 
-Raw source data are **not redistributed** in this repository. See `THIRD_PARTY_NOTICES.md`.
-
-## Citation and archived release
-
-For this exact software release (`v0.1.0`), use the version DOI:
-
-`10.5281/zenodo.22129134`
-
-For the evolving software record across all versions, use the concept DOI:
-
-`10.5281/zenodo.22129133`
-
-If you use the framework, please cite the software release and the source kinetic model listed in `THIRD_PARTY_NOTICES.md`.
+Raw source data are not redistributed in this repository. See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 
 ## Documentation
 
-- `docs/EVIDENCE_AND_LIMITATIONS.md`
-- `docs/INSTALLATION.md`
-- `docs/EXAMPLES.md`
-- `THIRD_PARTY_NOTICES.md`
-- `CITATION.cff`
+For fast access:
+
+- [`docs/SCIENTIFIC_BASIS.md`](docs/SCIENTIFIC_BASIS.md) — equations, balances and physical interpretation;
+- [`docs/EVIDENCE_AND_LIMITATIONS.md`](docs/EVIDENCE_AND_LIMITATIONS.md) — model/evidence matrix, claim boundaries and HOLD branches;
+- [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — numerical checks, CI and release-integrity rules;
+- [`docs/INSTALLATION.md`](docs/INSTALLATION.md) — installation and command-line use;
+- [`docs/EXAMPLES.md`](docs/EXAMPLES.md) — qualified example cases.
+
+## Not claimed
+
+This release does not provide validated executable support for:
+
+- detailed product chemistry;
+- CRECK execution or redistribution;
+- CPD/CPDSpatial execution;
+- polymers;
+- manure or dung prediction;
+- reactive CO2, steam, oxidative or autothermal pyrolysis;
+- co-pyrolysis interaction chemistry;
+- pressure-dependent kinetics;
+- a universal biomass kinetic model.
+
+## Citation
+
+For the exact published `v0.1.0` software release:
+
+`10.5281/zenodo.22129134`
+
+For the evolving software record across versions:
+
+`10.5281/zenodo.22129133`
+
+If the framework is used in scientific work, cite the software release and the source kinetic model.
 
 ## License
 
-The original framework code is licensed under the MIT License. See `LICENSE`.
+Original framework code is released under the MIT License. Third-party source material remains subject to its own rights and citation conditions.
 
-## Compatibility status
+## Development rule
 
-Direct clean-environment execution has been verified on Linux / Python 3.13.5. The repository includes a CI workflow for the release gate on:
-
-- Ubuntu / Python 3.10;
-- Ubuntu / Python 3.13;
-- Windows / Python 3.13.
-
-The first release gate requires the documented endpoint CI matrix to pass.
-
-## Development direction
-
-Later model adapters may be added only when their evidence, rights, executable integration and validation justify release. Higher fidelity is not a release objective by itself.
+Later model adapters are added only when their scientific value, data, validation, executable integration and rights justify release. Higher fidelity is not an objective by itself.
