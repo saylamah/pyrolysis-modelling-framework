@@ -1,15 +1,19 @@
 # Pyrolysis Modelling Framework
 
 **Published version:** `v0.1.0`  
+**Development candidate:** `v0.1.1rc1` — quality hardening, not published  
 **Status:** technical preview / qualified baseline  
-**Version DOI:** `10.5281/zenodo.22129134`  
-**Concept DOI:** `10.5281/zenodo.22129133`
+**Published v0.1.0 version DOI:** `10.5281/zenodo.22129134`  
+**Concept DOI:** `10.5281/zenodo.22129133`  
+**v0.1.1rc1 version DOI:** none
 
 The Pyrolysis Modelling Framework is an evidence-aware engineering framework for controlled pyrolysis modelling. It is designed around a simple rule:
 
 > use the smallest model that can answer the engineering question, and do not claim more than the evidence supports.
 
 The framework separates the physical case, model choice, numerical execution, balances, evidence status, uncertainty and applicability. This makes model limitations visible instead of hiding them inside a single prediction.
+
+The `v0.1.1rc1` branch strengthens scientific documentation, evidence controls, numerical verification, packaging and release integrity. It does **not** expand the qualified scientific domain of `v0.1.0`.
 
 ## What is qualified now
 
@@ -85,7 +89,7 @@ The framework distinguishes:
 
 These labels describe scientific evidence, not software quality.
 
-The current public model metadata include higher-fidelity and future branches because model eligibility is part of the framework. Their evidence status and executable status are stored separately. In `v0.1.0`, `SFOR_RWTH` is the only model adapter exposed through the qualified execution workflow.
+The current public model metadata include higher-fidelity and future branches because model eligibility is part of the framework. Their evidence status and executable status are stored separately. `SFOR_RWTH` remains the only model adapter exposed through the qualified execution workflow in both published `v0.1.0` and the `v0.1.1rc1` quality-hardening candidate.
 
 Generic Arrhenius and first-order utilities are also present as software/architecture utilities. They are **not** feedstock-general validated pyrolysis models and must not be interpreted as additional qualified model adapters.
 
@@ -99,6 +103,8 @@ Generic Arrhenius and first-order utilities are also present as software/archite
 | `cellulose_fbr_isothermal` | cellulose | 823 K, 1 s | source-parameter isothermal demonstration |
 
 The isothermal example exercises the high-FBR source parameter branch. It is not presented as independent detector-trace validation.
+
+The scientific example baseline remains frozen from `v0.1.0` in the quality-hardening candidate so documentation, packaging and evidence-control changes can be checked without silently changing the qualified numerical outputs.
 
 ## Source kinetic model
 
@@ -122,7 +128,7 @@ For fast access:
 
 ## Not claimed
 
-This release does not provide validated executable support for:
+This framework does not currently provide validated executable support for:
 
 - detailed product chemistry;
 - CRECK execution or redistribution;
@@ -144,7 +150,9 @@ For the evolving software record across versions:
 
 `10.5281/zenodo.22129133`
 
-If the framework is used in scientific work, cite the software release and the source kinetic model.
+The `v0.1.1rc1` development candidate has no version DOI and should not be represented as a published archival release.
+
+If a published version of the framework is used in scientific work, cite that software release and the source kinetic model.
 
 ## License
 
