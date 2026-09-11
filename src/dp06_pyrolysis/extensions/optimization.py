@@ -1,5 +1,5 @@
 """
-Pyrolysis Modelling Framework extension — v77 — Evidence-constrained process optimization utilities.
+Pyrolysis Modelling Framework extension — v0.2.0 — Evidence-constrained process optimization utilities.
 
 This is a framework utility, NOT a universal pyrolysis optimizer.
 
