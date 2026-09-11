@@ -6,9 +6,7 @@ Original Pyrolysis Modelling Framework code is released under the MIT License. E
 
 **Pielsticker, S.; Gövert, B.; Umeki, K.; Kneer, R. (2021).** *Flash Pyrolysis Kinetics of Extracted Lignocellulosic Biomass Components.* Frontiers in Energy Research 9:737011. DOI: `10.3389/fenrg.2021.737011`. Article licence: CC BY 4.0.
 
-Associated supplementary dataset: DOI `10.18154/RWTH-2021-05544`; dataset licence reported as CC0.
-
-The repository does not redistribute the raw RWTH supplementary archive.
+Associated supplementary dataset: DOI `10.18154/RWTH-2021-05544`, publicly accessible through the RWTH Aachen University repository. The public record is used here as the source/provenance identifier; reuse remains governed by the terms shown by the source repository. The Pyrolysis Modelling Framework does not redistribute the raw RWTH supplementary archive.
 
 ## v0.2.0 rights-safe source-derived utilities
 
