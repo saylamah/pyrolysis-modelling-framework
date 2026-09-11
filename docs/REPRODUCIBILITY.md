@@ -37,7 +37,7 @@ The release-gate workflow runs on:
 - Ubuntu / Python 3.13;
 - Windows / Python 3.13.
 
-A release candidate is not considered technically ready until the complete matrix passes.
+A prepared release is not considered technically ready until the complete matrix passes.
 
 ## 4. Deterministic example execution
 
