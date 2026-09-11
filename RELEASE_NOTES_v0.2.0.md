@@ -51,4 +51,4 @@ This release does not define a universal best pyrolysis model, universal kinetic
 
 ## Archival
 
-The version-specific Zenodo DOI is intentionally absent until the exact v0.2.0 release artifact has been archived. The concept DOI remains `10.5281/zenodo.22129133`.
+The version-specific Zenodo DOI for v0.2.0 is reserved as `10.5281/zenodo.22707516` in the existing software concept/version chain. The DOI is not registered/live until the v0.2.0 Zenodo record is published. On or after 2026-10-01, the exact tagged release artifact will be archived in that reserved new-version draft only after the final release gate passes. The concept DOI remains `10.5281/zenodo.22129133`.

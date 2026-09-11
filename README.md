@@ -1,7 +1,8 @@
 # Pyrolysis Modelling Framework
 
 **Prepared software version:** `v0.2.0`  
-**Release state in this source tree:** release-ready / version DOI assigned only after archival  
+**Release state in this source tree:** release-ready / Zenodo DOI reserved / not yet published  
+**Reserved v0.2.0 DOI:** `10.5281/zenodo.22707516` — not registered/live until publication  
 **Previous published version:** `v0.1.1` — DOI `10.5281/zenodo.22143183`  
 **Concept DOI:** `10.5281/zenodo.22129133`
 
@@ -110,7 +111,7 @@ Version `v0.2.0` does not claim:
 
 ## Citation
 
-Use the version-specific Zenodo DOI once `v0.2.0` has been archived. Until that DOI exists, the concept DOI `10.5281/zenodo.22129133` identifies the evolving software record. Source models and datasets used by a specific calculation should also be cited.
+The version-specific Zenodo DOI for `v0.2.0` is reserved as `10.5281/zenodo.22707516`. It is intentionally embedded in the release metadata before publication so the archived artifact and citation metadata can be synchronized. The DOI is not registered/live until the Zenodo record is published. Until then, the concept DOI `10.5281/zenodo.22129133` identifies the evolving software record and `10.5281/zenodo.22143183` remains the DOI of the current published software version. Source models and datasets used by a specific calculation should also be cited.
 
 ## License
 

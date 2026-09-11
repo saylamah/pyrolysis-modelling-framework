@@ -1,11 +1,12 @@
 cff-version: 1.2.0
-message: "If you use a published version of this software, cite that archived software release and the source models/datasets listed in THIRD_PARTY_NOTICES.md. This v0.2.0 release-ready source state has no version DOI until archival is completed."
+message: "If you use version 0.2.0 after publication, cite the version-specific Zenodo record DOI 10.5281/zenodo.22707516 and the source models/datasets listed in THIRD_PARTY_NOTICES.md. The DOI is reserved in the Zenodo draft and is not registered/live until publication."
 title: "Pyrolysis Modelling Framework"
 type: software
 authors:
   - family-names: "Saylam"
     given-names: "Ahmad"
 version: "0.2.0"
+doi: "10.5281/zenodo.22707516"
 repository-code: "https://github.com/saylamah/pyrolysis-modelling-framework"
 keywords:
   - pyrolysis
