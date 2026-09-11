@@ -1,0 +1,1 @@
+{"model":"EMP-MIX1","validation_summary":{"MAE_percentage_points":1.411,"RMSE_percentage_points":1.845,"bias_percentage_points":-1.186,"max_abs_percentage_points":3.583},"note":"Derived summary only; raw third-party data are not redistributed.","source_ref":"Wang et al. 2022; DOI 10.3389/fevo.2022.964936"}

@@ -1,0 +1,1 @@
+{"model":"EMP-BIO1","source_temperature_C":[500,600,800],"withheld_temperature_C":600,"measured_wt_pct":{"gas":22.9,"biooil":62.1,"char":15.0},"predicted_wt_pct":{"gas":26.1666666667,"biooil":59.3333333333,"char":14.5},"MAE_percentage_points":2.1777777778,"RMSE_percentage_points":2.4883431941,"source_ref":"Fernandez et al. 2022; DOI 10.1016/j.energy.2021.122053"}
