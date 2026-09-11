@@ -1,6 +1,6 @@
 from __future__ import annotations
 from pathlib import Path
-import argparse, json, tempfile
+import argparse, hashlib, json, tempfile
 
 from .preflight import preflight_config
 from .unified import run_unified_config
@@ -10,7 +10,6 @@ def verify_example_suite(manifest_path: str | Path, reruns: int=2):
     base=manifest_path.parent
     manifest=json.loads(manifest_path.read_text(encoding="utf-8"))
     results=[]
-    frozen_mismatches=[]
 
     for entry in manifest["examples"]:
         run_path=base/entry["run_file"]
@@ -40,13 +39,9 @@ def verify_example_suite(manifest_path: str | Path, reruns: int=2):
             raise RuntimeError(f"{entry['example_id']}: unexpected evidence status")
 
         if "expected_run_sha256" in entry and final["run_sha256"]!=entry["expected_run_sha256"]:
-            frozen_mismatches.append(
-                f"{entry['example_id']} run expected={entry['expected_run_sha256']} actual={final['run_sha256']}"
-            )
+            raise RuntimeError(f"{entry['example_id']}: run hash differs from frozen manifest")
         if "expected_passport_sha256" in entry and final["evidence_passport"]["passport_sha256"]!=entry["expected_passport_sha256"]:
-            frozen_mismatches.append(
-                f"{entry['example_id']} passport expected={entry['expected_passport_sha256']} actual={final['evidence_passport']['passport_sha256']}"
-            )
+            raise RuntimeError(f"{entry['example_id']}: passport hash differs from frozen manifest")
 
         results.append({
             "example_id":entry["example_id"],
@@ -61,10 +56,6 @@ def verify_example_suite(manifest_path: str | Path, reruns: int=2):
             "run_sha256":final["run_sha256"],
             "exact_rerun_count":max(1,reruns),
         })
-
-    if frozen_mismatches:
-        raise RuntimeError("Frozen manifest mismatch(es): " + " | ".join(frozen_mismatches))
-
     return {
         "schema":"PyrolysisFramework_ExampleSuiteReport_v1",
         "suite_id":manifest["suite_id"],
