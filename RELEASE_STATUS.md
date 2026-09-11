@@ -1,21 +1,17 @@
 # Release Status
 
-**Latest GitHub release:** `v0.1.1`  
-**Repository state:** public / quality-hardening patch published on GitHub and archived on Zenodo  
-**v0.1.1 tag commit:** `4786892b262e89ba576b1eca868704bf28b3e22a`  
-**Published v0.1.1 version DOI:** `10.5281/zenodo.22143183`  
-**Published v0.1.0 version DOI:** `10.5281/zenodo.22129134`  
-**Concept DOI:** `10.5281/zenodo.22129133`
+**Prepared release:** `v0.2.0`  
+**State:** RELEASE-READY / NOT YET ARCHIVED  
+**Earliest authorized publication date:** `2026-10-01`  
+**Frozen baseline:** tag `v0.1.1`, commit `4786892b262e89ba576b1eca868704bf28b3e22a`  
+**Previous published version DOI:** `10.5281/zenodo.22143183`  
+**Concept DOI:** `10.5281/zenodo.22129133`  
+**v0.2.0 version DOI:** not assigned before archival
 
-`v0.1.1` is the current stable GitHub release and current archived Zenodo version. The `v0.1.0` release remains available and immutable.
+Version `v0.2.0` preserves the qualified v0.1.1 SFOR baseline and adds the rights-safe extension layer documented in `RELEASE_NOTES_v0.2.0.md`.
 
-The `v0.1.1` quality-hardening patch strengthens scientific documentation, evidence-label control, public verification depth, package portability and release-archive integrity. It does not expand the qualified scientific domain.
+The release must not be tagged or published before 2026-10-01. Before publication, apply the release patch to the exact v0.1.1 baseline (or verify all intervening main-branch changes explicitly), run the complete release-gate CI, verify the built wheel and clean-wheel installation, and confirm that no evidence status, rights boundary or numerical result has been silently upgraded.
 
-Current scientific evidence remains bounded as documented in the README and evidence guide:
+After GitHub release and Zenodo archival, update the live repository metadata with the verified v0.2.0 version DOI. The archived tag itself may retain the pre-DOI citation state, as occurred for v0.1.1.
 
-- `SFOR_RWTH` is calibrated / source-domain;
-- software reproducibility and CI success do not constitute independent experimental validation.
-
-GitHub release verification and Zenodo archival are complete. The live repository metadata now points to the `v0.1.1` version DOI, while the concept DOI continues to represent the full version family.
-
-This status file records the patch-release state only. It does not close the broader Pyrolysis Modelling Framework development programme.
+This release state does not close the broader DP-06 Pyrolysis Modelling Framework programme.
