@@ -1,9 +1,11 @@
+__version__ = "0.2.0"
+
 from .types import (
     EvidenceIntent, EvidenceStatus, QualityStatus, Basis, FeedstockFamily,
     AtmosphereClass, EligibilityStatus
 )
 from .core import (
-    CompositionBlock, FeedstockPassport, ThermalProgram, RegimePassport,
+    CompositionBlock, FeedstockPassport, RegimePassport, ThermalProgram,
     ModelRequest, StudyCase, ModelManifest, EvidencePassport
 )
 from .integrity import (
