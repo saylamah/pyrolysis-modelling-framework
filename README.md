@@ -1,52 +1,52 @@
 # Pyrolysis Modelling Framework
 
-**Published version:** `v0.1.1`  
-**Status:** technical preview / qualified baseline  
-**Published v0.1.1 version DOI:** `10.5281/zenodo.22143183`  
-**Concept DOI:** `10.5281/zenodo.22129133`  
-**Previous v0.1.0 version DOI:** `10.5281/zenodo.22129134`
+**Prepared software version:** `v0.2.0`  
+**Release state in this source tree:** release-ready / Zenodo DOI reserved / not yet published  
+**Reserved v0.2.0 DOI:** `10.5281/zenodo.22707516` — not registered/live until publication  
+**Previous published version:** `v0.1.1` — DOI `10.5281/zenodo.22143183`  
+**Concept DOI:** `10.5281/zenodo.22129133`
 
-The Pyrolysis Modelling Framework is an evidence-aware engineering framework for controlled pyrolysis modelling. It is designed around a simple rule:
+The Pyrolysis Modelling Framework is an evidence-aware engineering framework for controlled pyrolysis modelling. Its governing rule is:
 
-> use the smallest model that can answer the engineering question, and do not claim more than the evidence supports.
+> use the smallest model that can answer the scientific or engineering question, and do not claim more than the evidence supports.
 
-The framework separates the physical case, model choice, numerical execution, balances, evidence status, uncertainty and applicability. This makes model limitations visible instead of hiding them inside a single prediction.
-
-Version `v0.1.1` is a quality-hardening patch release. It strengthens scientific documentation, evidence controls, numerical verification, packaging and release integrity. It does **not** expand the qualified scientific domain of `v0.1.0`.
-
-## What is qualified now
-
-The public workflow currently has one qualified executable model adapter:
-
-- `SFOR_RWTH`;
-- extracted cellulose, hemicellulose and lignin;
-- inert atmosphere;
-- linear-ramp and isothermal temperature programmes;
-- total volatile release and remaining solid;
-- mass and unresolved element accounting;
-- deterministic preflight checks;
-- Evidence Passport v2 and user-facing warnings.
-
-The `SFOR_RWTH` branch is **calibrated / source-domain**. Reproducible execution, numerical checks and CI success do **not** constitute independent experimental validation.
-
-Other model families are retained as bounded eligibility/evidence metadata. They are not silently substituted for an unavailable executable model.
+Version `v0.2.0` preserves the qualified `SFOR_RWTH` baseline from `v0.1.1` and adds rights-safe empirical, kinetic-analysis, diagnostic, model-selection and evidence-constrained optimization utilities developed in the associated multi-feedstock study. It does **not** turn all represented feedstocks or model families into universally validated predictive models.
 
 ## Scientific architecture
 
-The invariant workflow is:
+The invariant workflow remains:
 
 `StudyCase → Feedstock Passport → Regime Passport → Model Eligibility → Model Adapter → Canonical Products → Mass/Element/Energy Ledgers → Evidence Passport → Validation/Uncertainty → optional Optimization`
 
-The main design principles are:
+The main principles are:
 
 1. **Basis integrity.** Dry, dry-ash-free and as-received composition data are not silently mixed.
 2. **Regime integrity.** Heating rate, atmosphere, residence time and other regime variables remain explicit.
-3. **Minimum-sufficient fidelity.** Higher model complexity requires a named information gain.
-4. **No invented product split.** Unresolved volatile mass stays unresolved when the model cannot separate gas, tar/oil and water.
-5. **Evidence ceilings.** A requested claim is blocked when it exceeds the evidence level of the selected branch.
-6. **Rights/provenance visibility.** External mechanisms or datasets are referenced without assuming redistribution rights.
+3. **Minimum-sufficient fidelity.** Higher complexity requires a named information gain.
+4. **No invented product split.** Unresolved quantities remain unresolved.
+5. **Evidence ceilings.** Predictive claims are blocked when they exceed the evidence status of the selected branch.
+6. **Rights/provenance visibility.** External mechanisms and datasets are cited without assuming redistribution rights.
 
-See [`docs/SCIENTIFIC_BASIS.md`](docs/SCIENTIFIC_BASIS.md) for the equations and physical accounting logic.
+## Qualified executable baseline carried forward
+
+The original qualified adapter remains `SFOR_RWTH` for extracted cellulose, hemicellulose and lignin under inert conditions, with linear-ramp and isothermal temperature programmes, total volatile release / remaining solid, conservation accounting and deterministic preflight checks. Its scientific evidence remains **calibrated / source-domain**. Reproducible execution and passing tests are not independent experimental validation.
+
+## New rights-safe v0.2.0 extensions
+
+The `dp06_pyrolysis.extensions` package adds:
+
+- bounded biomass product-yield interpolation with a same-study 600 °C holdout;
+- local manure gas-phase-N interpolation with leave-one-interior-point-out assessment;
+- a source-bounded HDPE heating-rate / DTG-peak relation;
+- a measured-component biomass–PP additive-char null baseline;
+- KAS, FWO, Friedman and Starink isoconversional tools plus source-specific DAEM utilities, kept methodologically distinct;
+- validation metrics and a comparison harness that prevent incompatible observables from being collapsed into one score;
+- sewage-sludge and food-waste source/reference diagnostics;
+- minimum-sufficient model-selection guards across L1–L9;
+- chemistry-fidelity eligibility guards;
+- evidence-constrained Pareto and robustness utilities for optimization within qualified domains.
+
+These additions have different evidence roles. Some are predictive comparisons, some are bounded interpolation, some are measured-component baselines, and some are diagnostic or decision-support utilities. See [`docs/VALIDATION_CATALOG.md`](docs/VALIDATION_CATALOG.md).
 
 ## Quick start
 
@@ -56,109 +56,63 @@ Python 3.10 or newer is required.
 python -m pip install .
 ```
 
-Validate a case before numerical execution:
+Existing qualified CLI workflow:
 
 ```bash
 pyrolysis-validate examples/cellulose_tga_run.json
-```
-
-Run a qualified case:
-
-```bash
 pyrolysis-run examples/cellulose_tga_run.json
-```
-
-Render a result:
-
-```bash
-pyrolysis-report examples/cellulose_tga_result.json --format markdown
-```
-
-Verify all four qualified examples without leaving generated result files in the repository:
-
-```bash
 pyrolysis-examples examples/suite_manifest.json --reruns 2
 ```
 
-## Evidence and model status
+Example use of a v0.2.0 extension:
 
-The framework distinguishes:
+```python
+from dp06_pyrolysis.extensions.empirical import emp_bio1_outer_anchor_holdout_600
+print(emp_bio1_outer_anchor_holdout_600())
+```
 
-`validated · independently_reproduced · calibrated · screening · diagnostic · extrapolative · exploratory`
+See [`docs/QUICKSTART_EXTENSIONS.md`](docs/QUICKSTART_EXTENSIONS.md) and [`docs/READER_ACCESS.md`](docs/READER_ACCESS.md).
 
-These labels describe scientific evidence, not software quality.
+## Representative evidence boundaries
 
-The current public model metadata include higher-fidelity and future branches because model eligibility is part of the framework. Their evidence status and executable status are stored separately. `SFOR_RWTH` remains the only model adapter exposed through the qualified execution workflow in both `v0.1.0` and `v0.1.1`.
+- Biomass product-yield holdout: MAE 2.178 percentage points; RMSE 2.488 percentage points. This is bounded same-study interpolation, not cross-feedstock validation.
+- Manure gas-phase-N interpolation: MAE 6.722 percentage points; RMSE 7.000 percentage points; non-monotonic source behaviour is retained.
+- Biomass–PP additive-char null: RMSE 1.845 percentage points; causal synergy is not established.
+- HDPE common-PE no-refit comparison: peak-temperature RMSE 15.74 K; systematic timing mismatch is retained rather than hidden by refitting.
+- Sewage-sludge Coats–Redfern example: R² 0.984 versus 0.982 for the next candidate; fit coefficient alone does not identify a unique mechanism.
+- Food-waste reactor example: deviations are output-specific (approximately −7.4% H₂, −6.8% bio-oil, +33% biochar).
 
-Generic Arrhenius and first-order utilities are also present as software/architecture utilities. They are **not** feedstock-general validated pyrolysis models and must not be interpreted as additional qualified model adapters.
+Negative, partial and HOLD results are preserved because they define applicability limits.
 
-## Qualified examples
+## Reader access
 
-| Example | Component | Thermal programme | Purpose |
-|---|---|---|---|
-| `cellulose_tga` | cellulose | 303–1173 K, 5 K/min | calibrated TGA branch |
-| `hemicellulose_tga` | hemicellulose | 303–1173 K, 5 K/min | calibrated TGA branch |
-| `lignin_tga` | lignin | 303–1173 K, 5 K/min | calibrated TGA branch |
-| `cellulose_fbr_isothermal` | cellulose | 823 K, 1 s | source-parameter isothermal demonstration |
+- [`docs/MODEL_CATALOG.md`](docs/MODEL_CATALOG.md) — scientific role, source and executable/access status;
+- [`docs/VALIDATION_CATALOG.md`](docs/VALIDATION_CATALOG.md) — predictive validation, source reproduction, baseline/null and diagnostic evidence records;
+- [`docs/MANUSCRIPT_CODE_CROSSWALK.md`](docs/MANUSCRIPT_CODE_CROSSWALK.md) — manuscript terminology mapped to code and examples;
+- [`data/model_access_registry.json`](data/model_access_registry.json) — machine-readable model/tool access registry;
+- [`docs/EVIDENCE_AND_LIMITATIONS.md`](docs/EVIDENCE_AND_LIMITATIONS.md) — framework-wide evidence vocabulary and claim boundaries;
+- [`docs/SCIENTIFIC_BASIS.md`](docs/SCIENTIFIC_BASIS.md) — core equations and physical accounting logic.
 
-The isothermal example exercises the high-FBR source parameter branch. It is not presented as independent detector-trace validation.
+## Rights and redistribution boundary
 
-The four qualified numerical outputs remain frozen from `v0.1.0` in `v0.1.1`, so the quality-hardening patch does not silently alter the accepted baseline results.
-
-## Source kinetic model
-
-The qualified SFOR adapter is based on:
-
-Stefan Pielsticker, Benjamin Gövert, Kentaro Umeki, and Reinhold Kneer (2021), *Flash Pyrolysis Kinetics of Extracted Lignocellulosic Biomass Components*, **Frontiers in Energy Research**, 9:737011. DOI: `10.3389/fenrg.2021.737011`.
-
-Supplementary dataset: DOI `10.18154/RWTH-2021-05544`.
-
-Raw source data are not redistributed in this repository. See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
-
-## Documentation
-
-For fast access:
-
-- [`docs/SCIENTIFIC_BASIS.md`](docs/SCIENTIFIC_BASIS.md) — equations, balances and physical interpretation;
-- [`docs/EVIDENCE_AND_LIMITATIONS.md`](docs/EVIDENCE_AND_LIMITATIONS.md) — model/evidence matrix, claim boundaries and HOLD branches;
-- [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) — numerical checks, CI and release-integrity rules;
-- [`docs/INSTALLATION.md`](docs/INSTALLATION.md) — installation and command-line use;
-- [`docs/EXAMPLES.md`](docs/EXAMPLES.md) — qualified example cases.
+Original framework code is released under the MIT License. Source-derived parameters and compact rights-safe values are used only where justified. Third-party CRECK/Ranzi, Bio-CPD/CPD, detailed polymer mechanisms and other external mechanisms are **not** redistributed unless their exact executable source and redistribution terms are explicitly qualified. See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 
 ## Not claimed
 
-This framework does not currently provide validated executable support for:
+Version `v0.2.0` does not claim:
 
-- detailed product chemistry;
-- CRECK execution or redistribution;
-- CPD/CPDSpatial execution;
-- polymers;
-- manure or dung prediction;
-- reactive CO2, steam, oxidative or autothermal pyrolysis;
-- co-pyrolysis interaction chemistry;
-- pressure-dependent kinetics;
-- a universal biomass kinetic model.
+- one universally validated pyrolysis model across all feedstocks;
+- universal kinetic parameters for biomass, polymers, manure, sewage sludge or food waste;
+- validated detailed product chemistry merely because a mechanism is referenced;
+- predictive pressure-dependent kinetics;
+- universal co-pyrolysis synergy coefficients;
+- that software tests constitute experimental validation;
+- that diagnostic/reference utilities are predictive reactor models.
 
 ## Citation
 
-For the exact published `v0.1.1` software release:
-
-`10.5281/zenodo.22143183`
-
-For the evolving software record across versions:
-
-`10.5281/zenodo.22129133`
-
-Previous `v0.1.0` release:
-
-`10.5281/zenodo.22129134`
-
-If a published version of the framework is used in scientific work, cite that software release and the source kinetic model.
+The version-specific Zenodo DOI for `v0.2.0` is reserved as `10.5281/zenodo.22707516`. It is intentionally embedded in the release metadata before publication so the archived artifact and citation metadata can be synchronized. The DOI is not registered/live until the Zenodo record is published. Until then, the concept DOI `10.5281/zenodo.22129133` identifies the evolving software record and `10.5281/zenodo.22143183` remains the DOI of the current published software version. Source models and datasets used by a specific calculation should also be cited.
 
 ## License
 
 Original framework code is released under the MIT License. Third-party source material remains subject to its own rights and citation conditions.
-
-## Development rule
-
-Later model adapters are added only when their scientific value, data, validation, executable integration and rights justify release. Higher fidelity is not an objective by itself.

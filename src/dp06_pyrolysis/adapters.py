@@ -94,7 +94,7 @@ class RWTHSFORAdapter:
             model_id=self.model_id,
             model_name="RWTH 2021 source-faithful SFOR adapter",
             version="0.1.0",
-            fidelity_level="L1",
+            fidelity_level="L2",
             feedstock_families=["lignocellulosic_biomass"],
             supported_atmospheres=["inert"],
             required_input_blocks=["proximate_analysis","component_identity","thermal_program"],

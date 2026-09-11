@@ -4,14 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyrolysis-modelling-framework"
-version = "0.1.1"
+version = "0.2.0"
 description = "Evidence-aware, reproducible engineering framework for controlled pyrolysis modelling."
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["jsonschema>=4.18"]
+dependencies = ["jsonschema>=4.18", "numpy>=1.24"]
 authors = [{name = "Ahmad Saylam"}]
 license = "MIT"
-keywords = ["pyrolysis", "biomass", "kinetics", "engineering", "reproducibility", "model selection"]
+keywords = ["pyrolysis", "biomass", "polymers", "waste feedstocks", "kinetics", "DAEM", "validation", "engineering", "reproducibility", "model selection"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Science/Research",

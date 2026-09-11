@@ -1,6 +1,22 @@
 # Changelog
 
-## 0.1.1 — release-ready branch state, not yet published
+## 0.2.0 — release-ready
+
+- preserves the v0.1.1 qualified SFOR baseline and its evidence ceiling;
+- adds rights-safe empirical biomass, manure-N, HDPE-response and biomass–PP null-model utilities;
+- adds KAS, FWO, Friedman, Starink and source-specific DAEM analysis tools while keeping DAEM and isoconversional methods distinct;
+- adds validation metrics and comparable-observable comparison utilities;
+- adds sewage-sludge and food-waste diagnostic/reference adapters;
+- adds minimum-sufficient model-selection, chemistry-fidelity and evidence-constrained optimization guards;
+- adds model, evidence/validation and manuscript-to-code catalogues plus compact validation examples;
+- preserves failed, partial, diagnostic and HOLD outcomes instead of upgrading them to validated claims;
+- adds package-owned model-access metadata and release-integrity checks;
+- adds NumPy as a runtime dependency for the v0.2.0 extension layer;
+- does not redistribute third-party detailed mechanisms or raw external datasets.
+
+No universal feedstock model, universal activation energy, universal synergy coefficient, pressure-dependent predictive model or general detailed-chemistry validation claim is introduced.
+
+## 0.1.1 — 2026-08-28
 
 - strengthened public scientific documentation and navigation;
 - separated public executable status from scientific evidence metadata;
@@ -10,15 +26,14 @@
 - expanded public numerical, integrity and evidence-control tests;
 - added built-wheel inspection and clean-wheel installation verification;
 - documented exact-tag release-archive and checksum rules;
-- reconciled citation/status/version metadata without assigning an unpublished version DOI;
-- clarified that the current SFOR element ledger is unresolved conservation accounting, not a predictive elemental-fate model;
+- clarified the SFOR element ledger as unresolved conservation accounting, not predictive elemental-fate modelling;
 - clarified the stable linear-ramp solver as a piecewise midpoint-frozen coefficient exponential integration scheme.
 
-No new feedstock, atmosphere, product-chemistry or validation claim is introduced by this quality-hardening patch.
+No new feedstock, atmosphere, product-chemistry or validation claim was introduced by this quality-hardening patch.
 
 ## 0.1.0 — 2026-08-27
 
 - First public technical-preview release.
 - MIT licence active for original framework code.
 - Hosted release-gate CI passed on Ubuntu/Python 3.10, Ubuntu/Python 3.13, and Windows/Python 3.13.
-- Scientific scope remains the calibrated/source-domain `SFOR_RWTH` branch with four qualified examples.
+- Scientific scope remained the calibrated/source-domain `SFOR_RWTH` branch with four qualified examples.
