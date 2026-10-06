@@ -1,5 +1,5 @@
 """
-Pyrolysis Modelling Framework extension — — Unified frozen-adapter comparison harness v1.0
+Pyrolysis Modelling Framework extension — Unified frozen-adapter comparison harness
 
 Only metrics with identical declared observable, unit, basis and comparison context are numerically grouped. Missing or incommensurate outputs remain explicitly unavailable. No universal scalar model score is generated.
 """

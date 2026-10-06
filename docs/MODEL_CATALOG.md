@@ -4,7 +4,7 @@ This catalogue connects scientific model names to implementation status, source 
 
 | Model/tool | Scientific role | Release status | Code path | Example/validation path | Primary source | DOI |
 |---|---|---|---|---|---|---|
-| SFOR_RWTH | Global biomass-component conversion | Published v0.1.1 | src/dp06_pyrolysis/models/rwth2021.py | examples/cellulose_tga_run.json | Pielsticker et al. 2021 | 10.3389/fenrg.2021.737011 |
+| SFOR_RWTH | Global biomass-component conversion | Published in v0.2.0; qualified baseline first released in v0.1.1 | src/dp06_pyrolysis/adapters.py (RWTHSFORAdapter); src/dp06_pyrolysis/models/rwth2021.py (equations/parameters) | examples/cellulose_tga_run.json | Pielsticker et al. 2021 | 10.3389/fenrg.2021.737011 |
 | Biomass yield interpolation | Empirical product yield | Included in v0.2.0 | src/dp06_pyrolysis/extensions/empirical.py | examples/validation/empirical_biomass_holdout.json | Fernandez et al. 2022 | 10.1016/j.energy.2021.122053 |
 | Manure N interpolation | Empirical elemental fate | Included in v0.2.0 | src/dp06_pyrolysis/extensions/empirical.py | examples/validation/manure_N_leave_one_out.json | Baniasadi 2016 | 10.6092/unibo/amsdottorato/7493 |
 | HDPE peak response | Empirical kinetic response | Included in v0.2.0 | src/dp06_pyrolysis/extensions/empirical.py | examples/validation/hdpe_peak_response.json | Rambhia et al. 2025 | 10.1016/j.nxener.2025.100354 |

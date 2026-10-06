@@ -4,15 +4,17 @@ This document is the fastest route from the manuscript to reusable software.
 
 ## Current published baseline
 
-Repository: https://github.com/saylamah/pyrolysis-modelling-framework  
-Published release: v0.1.1  
-Zenodo DOI: 10.5281/zenodo.22143183
+Repository: https://github.com/saylamah/pyrolysis-modelling-framework
 
-The published baseline contains the qualified `SFOR_RWTH` adapter and the original evidence/reproducibility infrastructure.
+Published release: v0.2.0
+
+Zenodo DOI: 10.5281/zenodo.22707516
+
+The qualified `SFOR_RWTH` baseline was first released in v0.1.1. Version v0.2.0 carries that baseline forward and adds the rights-safe extension layer developed with the manuscript.
 
 ## v0.2.0
 
-Version 0.2.0 adds rights-safe models and analysis tools developed with the manuscript:
+Version 0.2.0 includes rights-safe models and analysis tools developed with the manuscript:
 
 - bounded empirical product-yield, nitrogen-fate, HDPE peak-response and mixed-feed null models;
 - KAS, FWO, Friedman, Starink and DAEM analysis utilities;

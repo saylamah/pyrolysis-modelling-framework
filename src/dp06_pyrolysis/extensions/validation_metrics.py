@@ -1,5 +1,5 @@
 """
-Pyrolysis Modelling Framework extension — Common validation and uncertainty metrics v1.0
+Pyrolysis Modelling Framework extension — Common validation and uncertainty metrics
 
 Rules:
 - no metric comparison without matching observable/basis/context;

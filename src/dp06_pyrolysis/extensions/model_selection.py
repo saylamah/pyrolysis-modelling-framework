@@ -1,5 +1,5 @@
 """
-Pyrolysis Modelling Framework extension — S4 — Parent model-selection and applicability router v1.0
+Pyrolysis Modelling Framework extension — Parent model-selection and applicability router
 
 The router selects:
 1) the minimum sufficient CORE chemistry/yield fidelity (L1-L7), and

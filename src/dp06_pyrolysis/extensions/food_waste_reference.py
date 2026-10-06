@@ -1,11 +1,11 @@
 """
-Pyrolysis Modelling Framework extension — P2-FW1 — Food-waste source/reference adapter v1.0
+Pyrolysis Modelling Framework extension — Food-waste source/reference adapter
 
 No universal food-waste kinetic model is defined.
 
 The module implements only source-published, source-bounded Yasir et al. (2025)
 reaction-order and frequency-factor correlations plus source-traceable diagnostics.
-Activation-energy execution from raw multi-rate data must reuse Pyrolysis Modelling Framework extension — P1-B.
+Activation-energy execution from raw multi-rate data must reuse the shared DAEM/isoconversional comparison instrument.
 """
 
 import math

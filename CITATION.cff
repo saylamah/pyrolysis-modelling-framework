@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use version 0.2.0 after publication, cite the version-specific Zenodo record DOI 10.5281/zenodo.22707516 and the source models/datasets listed in THIRD_PARTY_NOTICES.md. The DOI is reserved in the Zenodo draft and is not registered/live until publication."
+message: "If you use version 0.2.0, cite the version-specific Zenodo record DOI 10.5281/zenodo.22707516 and the source models/datasets listed in THIRD_PARTY_NOTICES.md."
 title: "Pyrolysis Modelling Framework"
 type: software
 authors:

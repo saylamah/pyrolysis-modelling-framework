@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.0 — release-ready
+## 0.2.0 — 2026-10-06
 
 - preserves the v0.1.1 qualified SFOR baseline and its evidence ceiling;
 - adds rights-safe empirical biomass, manure-N, HDPE-response and biomass–PP null-model utilities;

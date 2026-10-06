@@ -1,5 +1,5 @@
 """
-Pyrolysis Modelling Framework extension — — Common DAEM / isoconversional comparison instrument v0.1
+Pyrolysis Modelling Framework extension — Common DAEM / isoconversional comparison instrument
 
 Purpose
 -------

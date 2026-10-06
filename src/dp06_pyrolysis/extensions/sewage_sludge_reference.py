@@ -1,5 +1,5 @@
 """
-Pyrolysis Modelling Framework extension — — Sewage-sludge source/reference adapter v1.0
+Pyrolysis Modelling Framework extension — Sewage-sludge source/reference adapter
 
 This module does NOT implement a universal sewage-sludge kinetic solver.
 
@@ -12,7 +12,7 @@ It provides:
   into validated or transferable mechanisms.
 
 Raw multi-rate isoconversional execution should reuse the already-qualified
-Pyrolysis Modelling Framework extension — instrument when source rows become byte-local.
+the shared DAEM/isoconversional comparison instrument when source rows become byte-local.
 """
 
 from dataclasses import dataclass
